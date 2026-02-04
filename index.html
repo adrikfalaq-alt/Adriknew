@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV Digital - Adrik</title>
+    <style>
+        :root {
+            --primary: #3498db;
+            --dark: #2c3e50;
+            --accent: #e67e22;
+            --bg: #f0f2f5;
+        }
+
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: var(--bg); color: #333; margin: 0; padding: 20px; }
+        
+        /* Container Utama */
+        .cv-card { 
+            max-width: 800px; margin: auto; background: #fff; border-radius: 20px; 
+            overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); 
+        }
+
+        /* Header & Foto */
+        .header { background: var(--dark); color: white; text-align: center; padding: 40px 20px; }
+        .profile-img {
+            width: 160px; height: 160px; border-radius: 50%; border: 5px solid var(--primary);
+            object-fit: hidden; margin-bottom: 15px; transition: transform 0.3s ease;
+            cursor: pointer;
+            background-color: white;
+        }
+        .profile-img:hover { transform: scale(1.1); border-color: var(--accent); }
+        
+        .header h1 { margin: 10px 0; letter-spacing: 2px; text-transform: uppercase; }
+        .tagline { color: var(--primary); font-weight: bold; margin-bottom: 10px; }
+
+        /* Content */
+        .content { padding: 30px; display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+        h3 { border-left: 4px solid var(--primary); padding-left: 10px; color: var(--dark); }
+
+        /* Clickable Items */
+        .interactive-item {
+            background: #f8f9fa; border: 2px dashed #cbd5e0; padding: 15px; 
+            border-radius: 12px; cursor: pointer; transition: 0.3s; margin-bottom: 15px;
+            text-align: center; font-weight: bold;
+        }
+        .interactive-item:hover { 
+            background: #fff; border-color: var(--primary); color: var(--primary);
+            transform: translateY(-5px); box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        /* Modal (Pop-up) Animation */
+        .modal {
+            display: none; position: fixed; z-index: 100; left: 0; top: 0; 
+            width: 100%; height: 100%; background: rgba(0,0,0,0.7); 
+            backdrop-filter: blur(5px);
+        }
+        .modal-content {
+            background: white; margin: 15% auto; padding: 30px; border-radius: 15px;
+            width: 80%; max-width: 450px; text-align: center; position: relative;
+            animation: popIn 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+        }
+        @keyframes popIn {
+            from { transform: scale(0.5); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+        .close-btn { position: absolute; top: 10px; right: 15px; font-size: 24px; cursor: pointer; }
+
+        /* Skills */
+        .skill-badge {
+            background: var(--primary); color: white; padding: 5px 12px; 
+            border-radius: 15px; font-size: 14px; display: inline-block; margin: 3px;
+        }
+
+        @media (max-width: 600px) { .content { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+
+<div class="cv-card">
+    <div class="header">
+        <img src="ChatGPT Image 4 Feb 2026, 09.21.13.png" alt="Adrik" class="profile-img">
+        <h1>ADRIK</h1>
+        <p class="tagline">Creative Editor & Communication Specialist</p>
+        <p style="font-style: italic; opacity: 0.9;">"Saya selalu bekerja keras dalam menghadapi segala kegiatan."</p>
+    </div>
+
+    <div class="content">
+        <div>
+            <h3>Pendidikan</h3>
+            <p><strong>SMA (Lulus 2026)</strong><br>Organisasi: Keagamaan</p>
+            <p><strong>SMP (Lulus 2023)</strong></p>
+            <p><strong>SD (Lulus 2019)</strong></p>
+
+            <h3>Bahasa</h3>
+            <span class="skill-badge">Indonesia</span>
+            <span class="skill-badge">Sunda</span>
+            <span class="skill-badge">Jepang</span>
+        </div>
+
+        <div>
+            <h3>Klik Untuk Detail</h3>
+            <div class="interactive-item" onclick="showModal('hobiModal')">
+                ⚽ LIHAT HOBI
+            </div>
+            <div class="interactive-item" onclick="showModal('sertifModal')">
+                📜 LIHAT SERTIFIKAT
+            </div>
+
+            <h3>Kontak</h3>
+            <p>📞 085795606325<br>📸 Ig: drik_tzy<br>📍 Lamajang peuntas RW 16 RT 4</p>
+        </div>
+    </div>
+</div>
+
+<div id="hobiModal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeModal('hobiModal')">&times;</span>
+        <h2 style="color: var(--primary);">Hobi Saya ⚽</h2>
+        <p>Saya sangat menyukai <strong>Sepak Bola</strong>. Hobi ini melatih saya untuk bekerja keras, menjaga stamina, dan membangun kerjasama tim yang kuat.</p>
+    </div>
+</div>
+
+<div id="sertifModal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeModal('sertifModal')">&times;</span>
+        <h2 style="color: var(--accent);">Prestasi 📜</h2>
+        <p>Saya bangga telah meraih:</p>
+        <div style="background: #fff3e0; border: 2px solid var(--accent); padding: 10px; border-radius: 10px;">
+            <strong>Predikat Sempurna</strong><br>Nilai Tes Kemampuan Akademik (TKA)
+        </div>
+    </div>
+</div>
+
+<script>
+    function showModal(id) {
+        document.getElementById(id).style.display = "block";
+    }
+    function closeModal(id) {
+        document.getElementById(id).style.display = "none";
+    }
+    // Tutup modal jika klik di luar box
+    window.onclick = function(event) {
+        if (event.target.className === 'modal') {
+            event.target.style.display = "none";
+        }
+    }
+</script>
+
+</body>
+  </html>
